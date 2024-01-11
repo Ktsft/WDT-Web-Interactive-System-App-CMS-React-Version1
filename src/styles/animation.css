@@ -1,0 +1,33 @@
+@keyframes fadeInUp{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0.8;
+    }
+}
+
+@keyframes spin{
+    0%{
+        transform: rotateZ(0)
+    }
+    100%{
+        transform: rotateZ(180deg);
+    }
+}
+
+
+.fadeInUp{
+    animation-duration:0.3s;
+    animation-fill-mode:both;
+    animation-name: fadeInUp;
+}
+
+.spin{
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name:spin;
+    animation-iteration-count: infinite;
+}
+
+

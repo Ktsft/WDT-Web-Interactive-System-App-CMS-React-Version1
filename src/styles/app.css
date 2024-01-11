@@ -1,0 +1,136 @@
+body{
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "PT Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.login-body {
+    background-color: #1f41a9;
+    background-image: url(../assets/background.svg);
+}
+
+.login-container {
+    border: 1px solid white; /* Add a border to the container */
+    width: 70vw; /* Set the width to 70% of the viewport width */
+    height: 50vh; /* Set the height to 50% of the viewport height */
+    border-radius: 10px;
+    display: flex; /* Make the container a flex container */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+.dashboard-container {
+    /* Set the width to a larger value, for example, 200% of the viewport width */ 
+    justify-content: center;
+    align-items: center;
+}
+
+.table-container {
+    flex-grow: 1;
+    width: 100%;
+}
+
+
+.navbar {
+    font-family: Cambria, sans-serif;
+}
+
+
+.user-table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+.user-table th,
+.user-table td {
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    border: none; /* Remove borders */
+}
+
+.create-room-table-label-cell{
+    width: 25%; 
+}
+
+.create-room-table-input-cell{
+    width:60%; 
+}
+
+
+.user-table-label-cell{
+    width: 20%; 
+}
+
+.edit-button-table{
+    text-align: right;
+    width: 100%;
+}
+
+
+.user-table-tr:first-child {
+    margin-bottom: 20px; /* Add margin to the bottom of the first <tr> */
+}
+
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 9999; /* Ensure it's above other elements */
+}
+
+.mode-label {
+    margin-left: 10px; /* Adjust the margin as needed */
+}
+
+
+.mode-image {
+    margin-left: 30px; /* Adjust the margin as needed */
+}
+
+
+.mode-color {
+    margin-left: 100px; /* Adjust the margin as needed */
+}
+
+
+.custom-datepicker-width {
+    width: 307% !important;
+}
+
+
+.custom-datepicker-width-create-room {
+    width: 240% !important;
+}
+
+
+.custom-switch-input {
+    width: 60px; /* Adjust the width to make it larger */
+    height: 25px; /* Adjust the height to make it taller */
+    transform: scale(1.5); /* Scale up the switch */
+}
+
+
+
+.verify-container {
+    border: 1px solid white; /* Add a border to the container */
+    width: 70vw; /* Set the width to 70% of the viewport width */
+    height: 30vh; /* Set the height to 50% of the viewport height */
+    border-radius: 10px;
+    display: flex; /* Make the container a flex container */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+
+.move-right {
+    justify-content: flex-end;
+}
+
