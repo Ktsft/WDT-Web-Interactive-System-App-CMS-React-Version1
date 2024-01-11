@@ -200,11 +200,8 @@ export const CreateRoom = (props) => {
                                 className="form-control custom-datepicker-width-create-room"
                                 selected={startDate}
                                 onChange={(date) => onHandleStartDasteSelecteds(date)}
-                                showTimeSelect
-                                timeFormat="HH:mm"
-                                timeIntervals={15}
-                                timeCaption="Time"
-                                dateFormat="MMMM d, yyyy h:mm aa"
+                                showTimeSelect={false}
+                                dateFormat="MMMM d, yyyy"
                                 minDate={new Date()}
                             />
 
@@ -217,11 +214,8 @@ export const CreateRoom = (props) => {
                                 className="form-control custom-datepicker-width-create-room"
                                 onChange={(date) => onHandleEndDateSelecteds(date)}
                                 selected={endDate} // Ensure that you pass the selected date to the DatePicker
-                                showTimeSelect
-                                timeFormat="HH:mm"
-                                timeIntervals={15}
-                                timeCaption="Time"
-                                dateFormat="MMMM d, yyyy h:mm aa"
+                                showTimeSelect={false} // Set showTimeSelect to false to remove the time selection
+                                dateFormat="MMMM d, yyyy"
                                 disabled={!isStartDateSelected}
                                 minDate={new Date(startDate.getTime() + 1 * 24 * 60 * 60 * 1000)} // Set minDate conditionally 
                                 maxDate={new Date(startDate.getTime() + 3 * 24 * 60 * 60 * 1000)}

@@ -395,11 +395,8 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                 className="form-control custom-datepicker-width" // Apply the custom-datepicker class here
                                 selected={startDate}
                                 onChange={(date) => onHandleStartDasteSelecteds(date)}
-                                showTimeSelect
-                                timeFormat="HH:mm"
-                                timeIntervals={15}
-                                timeCaption="Time"
-                                dateFormat="MMMM d, yyyy h:mm aa"
+                                showTimeSelect={false}
+                                dateFormat="MMMM d, yyyy"
                                 minDate={new Date()} // Disable past dates
                             />
                         </td>
@@ -411,11 +408,8 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                 className="form-control custom-datepicker-width"
                                 selected={endDate}
                                 onChange={(date) => setEndDate(date)}
-                                showTimeSelect
-                                timeFormat="HH:mm"
-                                timeIntervals={15}
-                                timeCaption="Time"
-                                dateFormat="MMMM d, yyyy h:mm aa"
+                                showTimeSelect={false}
+                                dateFormat="MMMM d, yyyy"
                                 disabled={!startDate}
                                 minDate={new Date()} // Disable past dates
                             />
