@@ -126,6 +126,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                 // // console.log("this is the end date: ", endDateValue);
                 // setEndDate(endDateValue);
                 setBackgroundImg(response.data['background_img']);
+                console.log("[app logo image]: ", response.data["app_logo_img"])
                 setAppLogoImg(response.data["app_logo_img"]);
                 setCoverPhotoImg(response.data["cover_photo_img"]);
                 setWelcomeTextColor(response.data["welcome_text_color"]);
@@ -333,6 +334,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(response => {
+                console.log("[default image]: ", response.data["image"]);
                 setDefaultImg(response.data["image"]);
                 // console.log("this is the default image value: ", response.data["image"]);
             })
@@ -557,7 +559,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                     id="background_img_holder"
                                     width="120"
                                     height="120"
-                                    src={backgroundImg || defaultImg}
+                                    src={backgroundImg == 0 ? defaultImg : backgroundImg}
                                     alt="Background"
                                 />
                                 <input
@@ -583,7 +585,8 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                     id="app_img_holder"
                                     width="120"
                                     height="120"
-                                    src={appLogoImg || defaultImg}
+                                    // src={defaultImg}
+                                    src={appLogoImg == 0 ? defaultImg : appLogoImg}
                                     alt="Applogo"
                                 />
                                 <input
@@ -609,7 +612,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                     id="cover_img_holder"
                                     width="120"
                                     height="120"
-                                    src={coverPhotoImg || defaultImg}
+                                    src={coverPhotoImg == 0 ? defaultImg : coverPhotoImg}
                                     alt="Mode"
                                 />
                                 <input
@@ -685,7 +688,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                     className="mode-image"
                                     id="submit_button_img_holder"
                                     height={120}
-                                    src={submitButtonImg || defaultImg}
+                                    src={submitButtonImg == 0 ? defaultImg : submitButtonImg}
                                     alt="Submit"
                                 />
                                 <input
