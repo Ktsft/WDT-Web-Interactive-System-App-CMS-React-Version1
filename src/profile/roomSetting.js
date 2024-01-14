@@ -398,6 +398,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                 showTimeSelect={false}
                                 dateFormat="MMMM d, yyyy"
                                 minDate={new Date()} // Disable past dates
+                                disabled={roomStatus === 0}
                             />
                         </td>
                     </tr>
@@ -410,26 +411,26 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                 onChange={(date) => setEndDate(date)}
                                 showTimeSelect={false}
                                 dateFormat="MMMM d, yyyy"
-                                disabled={!startDate}
+                                disabled={!startDate || roomStatus === 0}
                                 minDate={new Date()} // Disable past dates
                             />
                         </td>
                     </tr>
                     <tr>
                         <th className="user-table-label-cell" style={{ padding: '10px' }}>Room Name: </th>
-                        <td style={{ padding: '10px' }}> <input type="text" name="name" className="form-control" value={roomName} onChange={onHandleRoomNameChange} /></td>
+                        <td style={{ padding: '10px' }}> <input type="text" name="name" className="form-control" value={roomName} onChange={onHandleRoomNameChange} disabled={roomStatus === 0} /></td>
                     </tr>
                     <tr>
                         <th className="user-table-label-cell" style={{ padding: '10px' }}>Room Description: </th>
-                        <td style={{ padding: '10px' }}> <input type="text" name="desc" className="form-control" value={roomDesc} onChange={onHandleRoomDescriptionChange} /></td>
+                        <td style={{ padding: '10px' }}> <input type="text" name="desc" className="form-control" value={roomDesc} onChange={onHandleRoomDescriptionChange} disabled={roomStatus === 0} /></td>
                     </tr>
                     <tr>
                         <th className="user-table-label-cell" style={{ padding: '10px' }}>Restricted Word: </th>
-                        <td style={{ padding: '10px' }}> <textarea className="form-control" id="restricWordArea" rows="4" value={restrictedWord} onChange={(e) => setRestrictedWord(e.target.value)}></textarea></td>
+                        <td style={{ padding: '10px' }}> <textarea className="form-control" id="restricWordArea" rows="4" value={restrictedWord} onChange={(e) => setRestrictedWord(e.target.value)} disabled={roomStatus === 0}></textarea></td>
                     </tr>
                     <tr>
                         <th className="user-table-label-cell" style={{ padding: '10px' }}>Default Greeting: </th>
-                        <td style={{ padding: '10px' }}> <textarea className="form-control" id="defaultGreetArea" rows="4" value={defaultGreeting} onChange={(e) => setDefaultGreeting(e.target.value)}></textarea></td>
+                        <td style={{ padding: '10px' }}> <textarea className="form-control" id="defaultGreetArea" rows="4" value={defaultGreeting} onChange={(e) => setDefaultGreeting(e.target.value)} disabled={roomStatus === 0}></textarea></td>
                     </tr>
                     <tr>
                         <th className="user-table-label-cell" colSpan="2" ><h2>Big Screen Setting</h2></th>
@@ -444,6 +445,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                         type="radio"
                                         onChange={() => handleGameModeChange('1')}
                                         checked={gameMode == '1'} // Compare to a string value
+                                        disabled={roomStatus === 0}
                                     />
                                     <span className="mode-label">Mode 1</span>
                                 </label>
@@ -452,6 +454,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                         type="radio"
                                         onChange={() => handleGameModeChange('2')}
                                         checked={gameMode == '2'}
+                                        disabled={roomStatus === 0}
                                     />
                                     <span className="mode-label">Mode 2</span>
                                 </label>
@@ -460,6 +463,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                         type="radio"
                                         onChange={() => handleGameModeChange('3')}
                                         checked={gameMode == '3'}
+                                        disabled={roomStatus === 0}
                                     />
                                     <span className="mode-label">Mode 3</span>
                                 </label>
@@ -478,6 +482,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                         type="radio"
                                         onChange={() => handleThemeIndexChange('1')}
                                         checked={themeIndex == '1'}
+                                        disabled={roomStatus === 0}
                                     />
                                     <span className="mode-label">Theme 1</span>
                                 </label>
@@ -486,6 +491,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                         type="radio"
                                         onChange={() => handleThemeIndexChange('2')}
                                         checked={themeIndex == '2'}
+                                        disabled={roomStatus === 0}
                                     />
                                     <span className="mode-label">Theme 2</span>
                                 </label>
@@ -494,6 +500,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                         type="radio"
                                         onChange={() => handleThemeIndexChange('3')}
                                         checked={themeIndex == '3'}
+                                        disabled={roomStatus === 0}
                                     />
                                     <span className="mode-label">Theme 3</span>
                                 </label>
@@ -510,6 +517,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                         type="radio"
                                         checked={layoutDirection == '1'}
                                         onChange={() => handleLayoutChange('1')}
+                                        disabled={roomStatus === 0}
                                     />
                                     <span className="mode-label">Layout 1</span>
                                 </label>
@@ -518,6 +526,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                         type="radio"
                                         checked={layoutDirection == '2'}
                                         onChange={() => handleLayoutChange('2')}
+                                        disabled={roomStatus === 0}
                                     />
                                     <span className="mode-label">Layout 2</span>
                                 </label>
@@ -526,6 +535,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                         type="radio"
                                         checked={layoutDirection == '3'}
                                         onChange={() => handleLayoutChange('3')}
+                                        disabled={roomStatus === 0}
                                     />
                                     <span className="mode-label">Layout 3</span>
                                 </label>
@@ -700,7 +710,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
             <hr />
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
                 <Button type="button" classType="btn btn-danger" text="Discard" buttonWidth="20%" onClick={onClose} />
-                <Button type="button" classType="btn btn-primary" text="Save" buttonWidth="20%" onClick={updateRoomSetting} />
+                <Button type="button" classType="btn btn-primary" text="Save" buttonWidth="20%" onClick={updateRoomSetting} disabled={roomStatus === 0} />
             </div>
 
 
