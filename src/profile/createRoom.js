@@ -31,6 +31,8 @@ export const CreateRoom = (props) => {
     const [endDate, setEndDate] = useState(() => {
         const currentDate = new Date();
         const extendedEndDate = new Date(currentDate.getTime() + 2 * 24 * 60 * 60 * 1000);
+        console.log("Current Date:", currentDate);
+        console.log("Extended End Date:", extendedEndDate);
         return extendedEndDate;
     });
     const [isStartDateSelected, setIsStartDateSelected] = useState(false);
