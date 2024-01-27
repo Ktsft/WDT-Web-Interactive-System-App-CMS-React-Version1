@@ -28,8 +28,11 @@ export const CreateRoom = (props) => {
     const [showSuccessModal, setShowSuccessModal] = useState(false);
 
     const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
-
+    const [endDate, setEndDate] = useState(() => {
+        const currentDate = new Date();
+        const extendedEndDate = new Date(currentDate.getTime() + 2 * 24 * 60 * 60 * 1000);
+        return extendedEndDate;
+    });
     const [isStartDateSelected, setIsStartDateSelected] = useState(false);
     const [sliderValue, setSliderValue] = useState(0);
 
@@ -153,7 +156,7 @@ export const CreateRoom = (props) => {
             setIsStartDateSelected(true);
 
             const maxEndDate = new Date(date);
-            maxEndDate.setDate(maxEndDate.getDate() + 1);
+            maxEndDate.setDate(maxEndDate.getDate() + 2);
 
             // Update end date to one more day from the start date
             setEndDate(maxEndDate);
@@ -164,6 +167,7 @@ export const CreateRoom = (props) => {
 
     const onHandleEndDateSelecteds = (date) => {
         setEndDate(date);
+
         // Add any other logic you need here
     };
 
@@ -217,7 +221,7 @@ export const CreateRoom = (props) => {
                                 showTimeSelect={false} // Set showTimeSelect to false to remove the time selection
                                 dateFormat="MMMM d, yyyy"
                                 disabled={!isStartDateSelected}
-                                minDate={new Date(startDate.getTime() + 1 * 24 * 60 * 60 * 1000)} // Set minDate conditionally 
+                                minDate={new Date(startDate.getTime() + 2 * 24 * 60 * 60 * 1000)} // Set minDate conditionally 
                                 maxDate={new Date(startDate.getTime() + 3 * 24 * 60 * 60 * 1000)}
                             />
                         </td>
