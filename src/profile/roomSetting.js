@@ -51,7 +51,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                 .then(response => {
 
                     onHandleRoomSetting();
-                    onHandleDefaultImage();
+                    //onHandleDefaultImage();
                     // console.log("i get the value: ", response.data['game_mode']);
                     setRoomName(response.data['room_name']);
                     setRoomDesc(response.data['room_description']);
@@ -125,15 +125,44 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                 // const endDateValue = new Date(response.data["end_date"]);
                 // // console.log("this is the end date: ", endDateValue);
                 // setEndDate(endDateValue);
-                setBackgroundImg(response.data['background_img']);
-                console.log("[app logo image]: ", response.data["app_logo_img"])
-                setAppLogoImg(response.data["app_logo_img"]);
-                setCoverPhotoImg(response.data["cover_photo_img"]);
+
+                console.log("response background: ", response.data["background_img"]);
+                if (response.data["background_img"] == 0) {
+                    const imgPath = "../image/bg1.png";
+                    setBackgroundImg(imgPath);
+                } else {
+                    setBackgroundImg(response.data['background_img']);
+                }
+
+                if (response.data["app_logo_img"] == 0) {
+                    const appImgPath = "../image/mobile_event pic.png";
+                    setAppLogoImg(appImgPath);
+                } else {
+                    setAppLogoImg(response.data["app_logo_img"]);
+                }
+
+                if (response.data["submit_button"] == 0) {
+                    const submitPath = "../image/mobile_send.png";
+                    setSubmitButtonImg(submitPath);
+                } else {
+                    setSubmitButtonImg(response.data["submit_button"]);
+                }
+
+
+                if (response.data["cover_photo_img"]) {
+                    const coverPhoto = "../image/No_Image_Available.jpg";
+                    setCoverPhotoImg(coverPhoto);
+                } else {
+                    setCoverPhotoImg(response.data["cover_photo_img"]);
+                }
+                //console.log("[app logo image]: ", response.data["app_logo_img"])
+                //setAppLogoImg(response.data["app_logo_img"]);
+
                 setWelcomeTextColor(response.data["welcome_text_color"]);
                 setNameIconColor(response.data["name_icon_color"]);
                 setDropdownHighlightColor(response.data["dropdown_highlight_color"]);
                 setGreetingScrollBackgroundColor(response.data["greeting_scroll_background_color"]);
-                setSubmitButtonImg(response.data["submit_button"]);
+
             })
             .catch(error => {
                 console.log("Get Room Setting Exception From Room Setting: ", error);
@@ -329,19 +358,19 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
     };
 
 
-    const onHandleDefaultImage = () => [
-        Axios.get("https://web-intractive-system-app-api.onrender.com/defaultImage/get", {
-            headers: { Authorization: `Bearer ${token}` }
-        })
-            .then(response => {
-                console.log("[default image]: ", response.data["image"]);
-                setDefaultImg(response.data["image"]);
-                // console.log("this is the default image value: ", response.data["image"]);
-            })
-            .catch(error => {
-                console.log("Get Room Setting Exception From Room Setting: ", error);
-            })
-    ];
+    // const onHandleDefaultImage = () => [
+    //     Axios.get("https://web-intractive-system-app-api.onrender.com/defaultImage/get", {
+    //         headers: { Authorization: `Bearer ${token}` }
+    //     })
+    //         .then(response => {
+    //             console.log("[default image]: ", response.data["image"]);
+    //             setDefaultImg(response.data["image"]);
+    //             // console.log("this is the default image value: ", response.data["image"]);
+    //         })
+    //         .catch(error => {
+    //             console.log("Get Room Setting Exception From Room Setting: ", error);
+    //         })
+    // ];
 
 
     const onHandleStartDasteSelecteds = (e) => {
@@ -559,7 +588,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                     id="background_img_holder"
                                     width="120"
                                     height="120"
-                                    src={backgroundImg == 0 ? defaultImg : backgroundImg}
+                                    src={backgroundImg}
                                     alt="Background"
                                 />
                                 <input
@@ -688,7 +717,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                     className="mode-image"
                                     id="submit_button_img_holder"
                                     height={120}
-                                    src={submitButtonImg == 0 ? defaultImg : submitButtonImg}
+                                    src={submitButtonImg}
                                     alt="Submit"
                                 />
                                 <input
