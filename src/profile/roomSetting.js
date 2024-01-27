@@ -135,7 +135,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                 }
 
                 if (response.data["app_logo_img"] == 0) {
-                    const appImgPath = "../image/mobile_event pic.png";
+                    const appImgPath = "../image/logo_wd_tech.png";
                     setAppLogoImg(appImgPath);
                 } else {
                     setAppLogoImg(response.data["app_logo_img"]);
@@ -150,7 +150,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
 
 
                 if (response.data["cover_photo_img"]) {
-                    const coverPhoto = "../image/No_Image_Available.jpg";
+                    const coverPhoto = "../image/mobile_event pic.png";
                     setCoverPhotoImg(coverPhoto);
                 } else {
                     setCoverPhotoImg(response.data["cover_photo_img"]);
@@ -602,7 +602,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    {/* <tr>
                         <td>App Logo Image :</td>
                         <td>
                             <div className="mb-3">
@@ -628,7 +628,7 @@ export const RoomSetting = ({ id = 'default-id', onClose, onCloseModals, showToa
                                 />
                             </div>
                         </td>
-                    </tr>
+                    </tr> */}
                     <tr>
                         <td>Cover Photo Image :</td>
                         <td>
